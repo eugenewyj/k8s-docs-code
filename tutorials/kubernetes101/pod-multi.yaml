@@ -1,0 +1,20 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: www
+spec:
+  containers:
+  - name: nginx
+    image: nginx
+    volumeMounts:
+    - mountPath:  /srv/wwww
+      name: www-data
+      readOnly: true
+  - name: redis
+    image:  redis
+    volumeMounts:
+    - mountPath:  /data/redis
+      name: www-data
+  volumes:
+  - name: www-data
+    emptyDir: {}
