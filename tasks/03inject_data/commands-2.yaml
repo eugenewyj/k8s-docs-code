@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: command-demo-2
+  labels:
+    purpose:  demostrate-command-2
+spec:
+  containers:
+  - name: command-demo-container-2
+    image:  debian
+    env:
+    - name: MESSAGE
+      value:  "hello world"
+    command:  ["/bin/echo"]
+    args: ["$(MESSAGE)"]
